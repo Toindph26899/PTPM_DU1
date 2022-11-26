@@ -20,21 +20,28 @@ public class ChiTietSPRepository implements IChiTietSPRepository {
                 + "JOIN Imei ON ctsp.IdImei = Imei.id";
 
         try ( Connection conn = DbConnection.getConnection()) {
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
                 listChiTietSP.add(new ChiTietSpViewModel(rs.getString(1), "Null", rs.getString(2), rs.getInt(3), rs.getLong(4), rs.getLong(5)));
             }
+
+            if (listChiTietSP.isEmpty()) {
+                System.out.println("list null");
+                return null;
+            }
             return listChiTietSP;
         } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(" Loi select");
         }
 
         return null;
     }
-    
+
     public static void main(String[] args) {
         ChiTietSPRepository c = new ChiTietSPRepository();
-        
+
         System.out.println(c.getListChiTietSp().toString());
     }
 }

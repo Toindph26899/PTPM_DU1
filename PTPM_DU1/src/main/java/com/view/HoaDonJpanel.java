@@ -1,7 +1,11 @@
 package com.view;
 
 import com.model.HoaDon;
+import com.repositories.IChiTietSPRepository;
+import com.repositories.impl.ChiTietSPRepository;
+import com.service.IChiTietSPService;
 import com.service.IHoaDonService;
+import com.service.impl.ChiTietSpService;
 import com.service.impl.HoaDonService;
 import com.viewmodel.ChiTietSpViewModel;
 import com.viewmodel.HoaDonView;
@@ -13,10 +17,14 @@ import javax.swing.table.DefaultTableModel;
 public class HoaDonJpanel extends javax.swing.JPanel {
 
     private IHoaDonService iHoaDonService = new HoaDonService();
+    private IChiTietSPService chiTietService = new ChiTietSpService();
+     
     
     public HoaDonJpanel() {
         initComponents();
-        loadTableHoaDon(iHoaDonService.listHoaDonView());
+//        loadTableHoaDon(iHoaDonService.listHoaDonView());
+        System.out.println(chiTietService.listChiTietSP());
+        loadbTableChiTietSp(chiTietService.listChiTietSP());
     }
 
     private void loadTableHoaDon(ArrayList<HoaDonView> list) {
@@ -45,7 +53,7 @@ public class HoaDonJpanel extends javax.swing.JPanel {
         for (ChiTietSpViewModel c : list) {
             Object[] rowData = {
                 stt,
-                "Chua load anh",
+                c.getAnh(),
                 c.getTenSp(),
                 c.getSoLuong(),
                 c.getDonGia(),
@@ -451,7 +459,7 @@ public class HoaDonJpanel extends javax.swing.JPanel {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblThanhTien, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTienKhachTra, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -528,11 +536,14 @@ public class HoaDonJpanel extends javax.swing.JPanel {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(315, 315, 315))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

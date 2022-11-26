@@ -14,7 +14,18 @@ public class ChiTietSpService implements IChiTietSPService{
     
     @Override
     public ArrayList<ChiTietSpViewModel> listChiTietSP() {
+        if(iChiTietSPRepository.getListChiTietSp() == null) {
+            System.out.println("Null");
+            return null;
+        }
+        
         return iChiTietSPRepository.getListChiTietSp();
+    }
+    
+    public static void main(String[] args) {
+        ChiTietSpService c = new ChiTietSpService();
+        
+        System.out.println(c.iChiTietSPRepository.getListChiTietSp().toString());
     }
     
 }
