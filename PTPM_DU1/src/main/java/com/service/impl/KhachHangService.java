@@ -17,22 +17,22 @@ public class KhachHangService implements IKhachHangService {
 
     @Override
     public Boolean add(KhachHang kh) {
-        
+        return iKhachHangRepository.add(kh);
     }
 
     @Override
     public Boolean delete(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return iKhachHangRepository.delete(id);
     }
 
     @Override
     public Boolean update(KhachHang kh, String id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return iKhachHangRepository.update(kh, id);
     }
 
     @Override
-    public ArrayList<KhachHang> getKhToSdt(String sdt) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public KhachHang getKhToSdt(String sdt) {
+        return iKhachHangRepository.getKhToSdt(sdt);
     }
 
 }

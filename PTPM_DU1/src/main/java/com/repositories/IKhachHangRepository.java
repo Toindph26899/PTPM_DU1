@@ -13,5 +13,5 @@ public interface IKhachHangRepository {
     
     Boolean update(KhachHang kh, String id);
     
-    ArrayList<KhachHang> getKhToSdt(String sdt);
+    KhachHang getKhToSdt(String sdt);
 }
