@@ -14,4 +14,6 @@ import java.util.List;
 public interface IHoaDonSer {
 
     List<HoaDonViewModel> getAll();
+    
+    List<HoaDonViewModel> search(String );
 }

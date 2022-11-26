@@ -11,7 +11,7 @@ public class DbConnection {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 conn = DriverManager.getConnection(
-                        "jdbc:sqlserver://localhost;databaseName=DU1;"
+                        "jdbc:sqlserver://localhost=1433;databaseName=DU1;"
                         + "user=sa;"
                         + "password=123456;"
                         + "encrypt=true;trustServerCertificate=true;"

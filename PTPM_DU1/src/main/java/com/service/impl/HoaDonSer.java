@@ -23,5 +23,10 @@ public class HoaDonSer implements IHoaDonSer{
     public List<HoaDonViewModel> getAll() {
         return hd.getAll();
     }
+
+    @Override
+    public List<HoaDonViewModel> search(String ) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
