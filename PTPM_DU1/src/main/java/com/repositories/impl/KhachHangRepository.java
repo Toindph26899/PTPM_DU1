@@ -12,6 +12,7 @@ public class KhachHangRepository implements IKhachHangRepository {
 
     @Override
     public ArrayList<KhachHang> listKhachHang() {
+        listKh = new ArrayList<>();
         String sql = "SELECT * FROM KhachHang";
 
         try {
@@ -22,6 +23,7 @@ public class KhachHangRepository implements IKhachHangRepository {
                 listKh.add(new KhachHang(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
                         rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getString(9), rs.getInt(10)));
             }
+            return listKh;
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Loi select");
@@ -108,18 +110,17 @@ public class KhachHangRepository implements IKhachHangRepository {
     }
 
     @Override
-    public ArrayList<KhachHang> getKhToSdt(String sdt) {
+    public KhachHang getKhToSdt(String sdt) {
         String sql = "SELECT * FROM KhachHang where sdt = ?";
-
         try {
             Connection conn = DbConnection.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setObject(1, sdt);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                listKh.add(new KhachHang(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
-                        rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getString(9), rs.getInt(10)));
-            }
+            KhachHang kh = new KhachHang(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
+                    rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getInt(9));
+
+            return kh;
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Loi select");

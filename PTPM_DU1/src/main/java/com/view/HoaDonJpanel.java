@@ -1,12 +1,15 @@
 package com.view;
 
 import com.model.HoaDon;
+import com.model.KhachHang;
 import com.service.IChiTietHdService;
 import com.service.IChiTietSPService;
 import com.service.IHoaDonService;
+import com.service.IKhachHangService;
 import com.service.impl.ChiTietHdService;
 import com.service.impl.ChiTietSpService;
 import com.service.impl.HoaDonService;
+import com.service.impl.KhachHangService;
 import com.viewmodel.ChiTietSpViewModel;
 import com.viewmodel.GioHangChiTiet;
 import com.viewmodel.HoaDonView;
@@ -20,6 +23,7 @@ public class HoaDonJpanel extends javax.swing.JPanel {
     private IHoaDonService iHoaDonService = new HoaDonService();
     private IChiTietSPService iChiTietService = new ChiTietSpService();
     private IChiTietHdService iChiTietHdService = new ChiTietHdService();
+    private IKhachHangService iKhachHangService = new KhachHangService();
     private ArrayList<GioHangChiTiet> listGioHangChiTiet = new ArrayList<>();
     private static String idHoaDon = "";
 
@@ -154,6 +158,7 @@ public class HoaDonJpanel extends javax.swing.JPanel {
         jLabel24 = new javax.swing.JLabel();
         txtGhiChu = new javax.swing.JTextField();
         btnGiaoHangThanhCong = new javax.swing.JButton();
+        lblKhachHang = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -454,6 +459,10 @@ public class HoaDonJpanel extends javax.swing.JPanel {
 
         btnGiaoHangThanhCong.setText("Đã giao hàng");
 
+        lblKhachHang.setBackground(new java.awt.Color(255, 255, 255));
+        lblKhachHang.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lblKhachHang.setText("-");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -471,7 +480,8 @@ public class HoaDonJpanel extends javax.swing.JPanel {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(txtSdtKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnNewKhachHang))))
+                                .addComponent(btnNewKhachHang))
+                            .addComponent(lblKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -534,7 +544,9 @@ public class HoaDonJpanel extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addComponent(txtSdtKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNewKhachHang))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(4, 4, 4)
+                .addComponent(lblKhachHang)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(lblMaHd))
@@ -543,7 +555,7 @@ public class HoaDonJpanel extends javax.swing.JPanel {
                     .addComponent(jLabel10)
                     .addComponent(rdoTienMat)
                     .addComponent(rdoBanking))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(lblNgayTao))
@@ -551,11 +563,11 @@ public class HoaDonJpanel extends javax.swing.JPanel {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(lblNgayThanhToan))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel24)
-                    .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(lblTongTien))
@@ -759,6 +771,11 @@ public class HoaDonJpanel extends javax.swing.JPanel {
     }//GEN-LAST:event_rdoBankingActionPerformed
 
     private void txtSdtKhachHangCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSdtKhachHangCaretUpdate
+        String sdt = this.txtSdtKhachHang.getText();
+        
+        KhachHang kh = iKhachHangService.getKhToSdt(sdt);
+        
+        lblKhachHang.setText(kh.getTen());
         
     }//GEN-LAST:event_txtSdtKhachHangCaretUpdate
 
@@ -796,6 +813,7 @@ public class HoaDonJpanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblKhachHang;
     private javax.swing.JLabel lblMaHd;
     private javax.swing.JLabel lblNgayTao;
     private javax.swing.JLabel lblNgayThanhToan;
