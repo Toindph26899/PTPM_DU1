@@ -4,7 +4,10 @@ import com.model.HoaDon;
 import com.service.IChiTietHdService;
 import com.service.IChiTietSPService;
 import com.service.IHoaDonService;
+<<<<<<< HEAD
+=======
 import com.service.impl.ChiTietHdService;
+>>>>>>> origin/main
 import com.service.impl.ChiTietSpService;
 import com.service.impl.HoaDonService;
 import com.viewmodel.ChiTietSpViewModel;
@@ -18,10 +21,14 @@ import javax.swing.table.DefaultTableModel;
 public class HoaDonJpanel extends javax.swing.JPanel {
 
     private IHoaDonService iHoaDonService = new HoaDonService();
+<<<<<<< HEAD
+    private IChiTietSPService iChiTietSPService = new ChiTietSpService();
+=======
     private IChiTietSPService iChiTietService = new ChiTietSpService();
     private IChiTietHdService iChiTietHdService = new ChiTietHdService();
     private ArrayList<GioHangChiTiet> listGioHangChiTiet = new ArrayList<>();
     private static String idHoaDon = "";
+>>>>>>> origin/main
 
     public HoaDonJpanel() {
         initComponents();
@@ -29,7 +36,14 @@ public class HoaDonJpanel extends javax.swing.JPanel {
 //        System.out.println(iHoaDonService.listHoaDonView());
 //        System.out.println(chiTietService.listChiTietSP());
         loadTableHoaDon(iHoaDonService.listHoaDonView());
+<<<<<<< HEAD
+        if (iChiTietSPService.listChiTietSP() != null) {
+            loadbTableChiTietSp(iChiTietSPService.listChiTietSP());
+        }
+
+=======
         loadbTableChiTietSp(iChiTietService.listChiTietSP());
+>>>>>>> origin/main
     }
 
     private void loadTableHoaDon(ArrayList<HoaDonView> list) {
@@ -69,6 +83,8 @@ public class HoaDonJpanel extends javax.swing.JPanel {
         }
     }
 
+<<<<<<< HEAD
+=======
     private void loadTableGioHang(ArrayList<GioHangChiTiet> list) {
         DefaultTableModel dtm = (DefaultTableModel) this.tblGioHang.getModel();
         dtm.setRowCount(0);
@@ -88,6 +104,7 @@ public class HoaDonJpanel extends javax.swing.JPanel {
 
     }
 
+>>>>>>> origin/main
     private HoaDon getValidate() {
         HoaDon h = new HoaDon();
 

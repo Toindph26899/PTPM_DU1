@@ -6,4 +6,6 @@ import java.util.ArrayList;
 public interface IChiTietSPService {
 
     ArrayList<ChiTietSpViewModel> listChiTietSP();
+    
+    ArrayList<ChiTietSpViewModel> list();
 }
