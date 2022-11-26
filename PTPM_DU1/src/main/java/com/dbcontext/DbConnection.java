@@ -17,19 +17,10 @@ public class DbConnection {
                         + "encrypt=true;trustServerCertificate=true;"
                 );
                 System.out.println("Connect Expect");
-                return conn;
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("False");
             }
-        } else {
-            try {
-                conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("Loi close");
-            }
-
         }
         return conn;
     }

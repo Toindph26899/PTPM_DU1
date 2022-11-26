@@ -2,6 +2,7 @@ package com.viewmodel;
 
 public class GioHangChiTiet {
 
+    private String idHoaDon;
     private String idChiTietSp;
     private String anh;
     private String tenSp;
@@ -11,7 +12,8 @@ public class GioHangChiTiet {
     public GioHangChiTiet() {
     }
 
-    public GioHangChiTiet(String idChiTietSp, String anh, String tenSp, int soLuong, Long donGia) {
+    public GioHangChiTiet(String idHoaDon, String idChiTietSp, String anh, String tenSp, int soLuong, Long donGia) {
+        this.idHoaDon = idHoaDon;
         this.idChiTietSp = idChiTietSp;
         this.anh = anh;
         this.tenSp = tenSp;
@@ -19,6 +21,14 @@ public class GioHangChiTiet {
         this.donGia = donGia;
     }
 
+    public GioHangChiTiet(String idChiTietSp, String anh, String tenSp, int soLuong, Long donGia) {
+        this.idChiTietSp = idChiTietSp;
+        this.anh = anh;
+        this.tenSp = tenSp;
+        this.soLuong = soLuong;
+        this.donGia = donGia;
+    }
+    
     public String getIdChiTietSp() {
         return idChiTietSp;
     }
@@ -59,9 +69,17 @@ public class GioHangChiTiet {
         this.donGia = donGia;
     }
 
+    public String getIdHoaDon() {
+        return idHoaDon;
+    }
+
+    public void setIdHoaDon(String idHoaDon) {
+        this.idHoaDon = idHoaDon;
+    }
+
     @Override
     public String toString() {
-        return "GioHangChiTiet{" + "idChiTietSp=" + idChiTietSp + ", anh=" + anh + ", tenSp=" + tenSp + ", soLuong=" + soLuong + ", donGia=" + donGia + '}';
+        return "GioHangChiTiet{" + "idHoaDon=" + idHoaDon + ", idChiTietSp=" + idChiTietSp + ", anh=" + anh + ", tenSp=" + tenSp + ", soLuong=" + soLuong + ", donGia=" + donGia + '}';
     }
 
 }
