@@ -17,4 +17,8 @@ public class ChiTietSpService implements IChiTietSPService{
         return iChiTietSPRepository.getListChiTietSp();
     }
     
+    public static void main(String[] args) {
+        ChiTietSpService sp = new ChiTietSpService();
+        sp.listChiTietSP().forEach(s -> System.out.println(s.toString()));
+    }
 }

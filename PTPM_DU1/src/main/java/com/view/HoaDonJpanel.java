@@ -1,7 +1,10 @@
 package com.view;
 
 import com.model.HoaDon;
+import com.service.IChiTietHdService;
+import com.service.IChiTietSPService;
 import com.service.IHoaDonService;
+import com.service.impl.ChiTietSpService;
 import com.service.impl.HoaDonService;
 import com.viewmodel.ChiTietSpViewModel;
 import com.viewmodel.HoaDonView;
@@ -13,10 +16,15 @@ import javax.swing.table.DefaultTableModel;
 public class HoaDonJpanel extends javax.swing.JPanel {
 
     private IHoaDonService iHoaDonService = new HoaDonService();
-    
+    private IChiTietSPService iChiTietSPService = new ChiTietSpService();
+
     public HoaDonJpanel() {
         initComponents();
         loadTableHoaDon(iHoaDonService.listHoaDonView());
+        if (iChiTietSPService.listChiTietSP() != null) {
+            loadbTableChiTietSp(iChiTietSPService.listChiTietSP());
+        }
+
     }
 
     private void loadTableHoaDon(ArrayList<HoaDonView> list) {
@@ -37,7 +45,7 @@ public class HoaDonJpanel extends javax.swing.JPanel {
             stt++;
         }
     }
-    
+
     private void loadbTableChiTietSp(ArrayList<ChiTietSpViewModel> list) {
         DefaultTableModel dtm = (DefaultTableModel) this.tblChiTietSP.getModel();
         dtm.setRowCount(0);
@@ -54,22 +62,22 @@ public class HoaDonJpanel extends javax.swing.JPanel {
             dtm.addRow(rowData);
             stt++;
         }
-    } 
-    
+    }
+
     private HoaDon getValidate() {
         HoaDon h = new HoaDon();
-        
-        int rand = (int)(Math.random() * 9999) + 1;
-        
+
+        int rand = (int) (Math.random() * 9999) + 1;
+
         h.setMa("HD" + rand);
         h.setIdNhanVien("36eb5d9d-00ee-4e89-b3d2-ad87a3e9b2f9");
         h.setTenKh("");
         h.setNgayTao(new Date());
         h.setTinhTrang(0);
-        
+
         return h;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -557,12 +565,12 @@ public class HoaDonJpanel extends javax.swing.JPanel {
 
     private void btnTaoHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaoHoaDonActionPerformed
         HoaDon h = getValidate();
-        
-        if(h == null) {
+
+        if (h == null) {
             JOptionPane.showMessageDialog(this, "Null");
             return;
         }
-        
+
         iHoaDonService.add(h);
         JOptionPane.showMessageDialog(this, "Them thanh cong");
         loadTableHoaDon(iHoaDonService.listHoaDonView());

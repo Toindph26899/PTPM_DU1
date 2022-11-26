@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.repositories;
+package com.service;
 
 import com.viewmodel.HoaDonChiTietViewModel;
 import java.util.List;
@@ -11,9 +11,8 @@ import java.util.List;
  *
  * @author ADMIN
  */
-public interface IHoaDonCTRepositoryHD {
-
+public interface IHoaDonCTSer {
     List<HoaDonChiTietViewModel> getAll();
-
+    
     List<HoaDonChiTietViewModel> getOne(String id);
 }

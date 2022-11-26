@@ -4,14 +4,14 @@ import java.awt.Color;
 import javax.swing.JPanel;
 
 public class FrmChinh extends javax.swing.JFrame {
-
+    
     JPanel jPanel;
-
+    
     public FrmChinh() {
         initComponents();
         setLocationRelativeTo(null);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -157,6 +157,9 @@ public class FrmChinh extends javax.swing.JFrame {
 
         btn_BanHang.setBackground(new java.awt.Color(41, 57, 80));
         btn_BanHang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_BanHangMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btn_BanHangMousePressed(evt);
             }
@@ -496,7 +499,7 @@ public class FrmChinh extends javax.swing.JFrame {
 
         container.setBackground(new java.awt.Color(255, 255, 255));
         container.setLayout(new java.awt.BorderLayout());
-        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 4, 820, 650));
+        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 4, 880, 810));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -505,28 +508,28 @@ public class FrmChinh extends javax.swing.JFrame {
         setColor(btn_SP);
         in_2.setOpaque(true);
         resetColor(new JPanel[]{btn_BanHang, btn_HoaDon, btn_Home, btn_KhuyenMai, btn_DoiSP},
-                new JPanel[]{in_1, in_3, in_4, in_5, in_6,in_7,in_8,in_9});
+                new JPanel[]{in_1, in_3, in_4, in_5, in_6, in_7, in_8, in_9});
     }//GEN-LAST:event_btn_SPMousePressed
 
     private void btn_HomeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HomeMousePressed
         setColor(btn_Home);
         in_1.setOpaque(true);
         resetColor(new JPanel[]{btn_BanHang, btn_HoaDon, btn_SP, btn_KhuyenMai, btn_DoiSP},
-                new JPanel[]{in_2, in_3, in_4, in_5, in_6,in_7,in_8,in_9});
+                new JPanel[]{in_2, in_3, in_4, in_5, in_6, in_7, in_8, in_9});
     }//GEN-LAST:event_btn_HomeMousePressed
 
     private void btn_BanHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_BanHangMousePressed
         setColor(btn_BanHang);
         in_3.setOpaque(true);
         resetColor(new JPanel[]{btn_Home, btn_HoaDon, btn_SP, btn_KhuyenMai, btn_DoiSP},
-                new JPanel[]{in_2, in_1, in_4, in_5, in_6,in_7,in_8,in_9});
+                new JPanel[]{in_2, in_1, in_4, in_5, in_6, in_7, in_8, in_9});
     }//GEN-LAST:event_btn_BanHangMousePressed
 
     private void btn_HoaDonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HoaDonMousePressed
         setColor(btn_HoaDon);
         in_4.setOpaque(true);
         resetColor(new JPanel[]{btn_BanHang, btn_Home, btn_SP, btn_KhuyenMai, btn_DoiSP},
-                new JPanel[]{in_2, in_3, in_1, in_5, in_6,in_7,in_8,in_9});
+                new JPanel[]{in_2, in_3, in_1, in_5, in_6, in_7, in_8, in_9});
     }//GEN-LAST:event_btn_HoaDonMousePressed
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
@@ -573,14 +576,19 @@ public class FrmChinh extends javax.swing.JFrame {
         setColor(btn_Thongke);
         in_9.setOpaque(true);
         resetColor(new JPanel[]{btn_BanHang, btn_HoaDon, btn_SP, btn_KhuyenMai,
-            btn_Home, btn_NhanVien, btn_KhachHang, btn_Thongke},
+            btn_Home, btn_NhanVien, btn_KhachHang, btn_DoiSP},
                 new JPanel[]{in_2, in_3, in_4, in_5, in_1, in_7, in_8, in_6});
     }//GEN-LAST:event_btn_ThongkeMousePressed
 
+    private void btn_BanHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_BanHangMouseClicked
+        jPanel = new HoaDonJpanel();
+        showJpanel(jPanel);
+    }//GEN-LAST:event_btn_BanHangMouseClicked
+    
     private void setColor(JPanel jPanel) {
         jPanel.setBackground(new Color(41, 57, 80));
     }
-
+    
     private void resetColor(JPanel[] jPanel, JPanel[] opacity) {
         for (int i = 0; i < jPanel.length; i++) {
             jPanel[i].setBackground(new Color(23, 35, 51));
@@ -589,15 +597,15 @@ public class FrmChinh extends javax.swing.JFrame {
             opacity[i].setOpaque(false);
         }
     }
-
+    
     private void showJpanel(JPanel jPanel1) {
         container.removeAll();
         container.add(jPanel1);
         container.validate();
     }
-
+    
     public static void main(String args[]) {
-
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmChinh().setVisible(true);
