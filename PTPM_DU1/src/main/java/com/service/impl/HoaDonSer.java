@@ -25,7 +25,7 @@ public class HoaDonSer implements IHoaDonSer{
     }
 
     @Override
-    public List<HoaDonViewModel> search(String ) {
+    public List<HoaDonViewModel> search(String string) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

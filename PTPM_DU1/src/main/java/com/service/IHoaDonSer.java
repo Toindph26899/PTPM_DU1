@@ -15,5 +15,5 @@ public interface IHoaDonSer {
 
     List<HoaDonViewModel> getAll();
     
-    List<HoaDonViewModel> search(String );
+    List<HoaDonViewModel> search(String string);
 }
