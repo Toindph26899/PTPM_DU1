@@ -2,20 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.service;
+package com.repositories;
 
-import com.viewmodel.HoaDonViewModel;
+import com.viewmodel.QLChucVuViewModel;
 import java.util.List;
 
 /**
  *
  * @author ADMIN
  */
-public interface IHoaDonSer {
-
-    List<HoaDonViewModel> getAll();
-
-    List<HoaDonViewModel> search(String string);
-
-    void update(String id, HoaDonViewModel hd);
+public interface IChucVuRepository {
+    List<QLChucVuViewModel> getAll();
 }

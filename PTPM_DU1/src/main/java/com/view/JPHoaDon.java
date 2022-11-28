@@ -53,6 +53,7 @@ public class JPHoaDon extends javax.swing.JPanel {
                 x.getTenNV(),
                 x.getNgayTao(),
                 x.getNgayThanhToan(),
+                x.getHinhThucThanhToan() == "1" ? "Banking" : "Tien mat",
                 x.getTinhTrang() == 1 ? "Da thanh toan" : "Chua thanh toan",
                 x.getGhiChu()
             };
@@ -96,8 +97,8 @@ public class JPHoaDon extends javax.swing.JPanel {
         jTable4 = new javax.swing.JTable();
         txtSearch = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        btn_Export = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        btn_Export = new javax.swing.JButton();
+        btn_Update = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -120,11 +121,12 @@ public class JPHoaDon extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Hoa don"));
 
         tblHoaDon.setModel(new javax.swing.table.DefaultTableModel(
@@ -137,7 +139,15 @@ public class JPHoaDon extends javax.swing.JPanel {
             new String [] {
                 "Id", "Khach hang", "Sdt KH", "Ten NV", "Ngay tao", "Ngay thanh toan", "Hinh thuc thanh toan", "Trang thai", "Ghi chu"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblHoaDonMouseClicked(evt);
@@ -204,6 +214,7 @@ public class JPHoaDon extends javax.swing.JPanel {
                     .addContainerGap()))
         );
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Hoa don chi tiet"));
 
         tblHoaDonCT.setModel(new javax.swing.table.DefaultTableModel(
@@ -279,37 +290,34 @@ public class JPHoaDon extends javax.swing.JPanel {
         );
 
         txtSearch.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(23, 35, 51)));
+        txtSearch.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtSearchCaretUpdate(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Search");
 
         btn_Export.setBackground(new java.awt.Color(23, 35, 51));
-        btn_Export.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_ExportMouseClicked(evt);
+        btn_Export.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btn_Export.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Export.setText("Export excel");
+        btn_Export.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ExportActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Export excel");
-
-        javax.swing.GroupLayout btn_ExportLayout = new javax.swing.GroupLayout(btn_Export);
-        btn_Export.setLayout(btn_ExportLayout);
-        btn_ExportLayout.setHorizontalGroup(
-            btn_ExportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_ExportLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        btn_ExportLayout.setVerticalGroup(
-            btn_ExportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_ExportLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        btn_Update.setBackground(new java.awt.Color(23, 35, 51));
+        btn_Update.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btn_Update.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Update.setText("Sua");
+        btn_Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_UpdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -324,23 +332,27 @@ public class JPHoaDon extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_Export, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(214, 214, 214))
+                .addComponent(btn_Export)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Update)
+                .addGap(71, 71, 71))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(btn_Export, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Export, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -353,7 +365,11 @@ public class JPHoaDon extends javax.swing.JPanel {
         loadHoaDonCT(hoaDonCT.getOne(id));
     }//GEN-LAST:event_tblHoaDonMouseClicked
 
-    private void btn_ExportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExportMouseClicked
+    private void txtSearchCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSearchCaretUpdate
+        loadHoaDon(hoaDon.search(txtSearch.getText()));
+    }//GEN-LAST:event_txtSearchCaretUpdate
+
+    private void btn_ExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExportActionPerformed
         List<HoaDonViewModel> ls = hoaDon.getAll();
         try {
             XSSFWorkbook wordkbook = new XSSFWorkbook();
@@ -432,7 +448,7 @@ public class JPHoaDon extends javax.swing.JPanel {
             if (x == JFileChooser.APPROVE_OPTION) {
                 File f = fc.getSelectedFile();
                 try {
-                    FileOutputStream fos = new FileOutputStream(f.getPath()+".xlsx");
+                    FileOutputStream fos = new FileOutputStream(f.getPath() + ".xlsx");
                     wordkbook.write(fos);
                     fos.close();
                 } catch (Exception ex) {
@@ -447,15 +463,44 @@ public class JPHoaDon extends javax.swing.JPanel {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this, "Loi mo file");
         }
+    }//GEN-LAST:event_btn_ExportActionPerformed
 
-    }//GEN-LAST:event_btn_ExportMouseClicked
+    private void btn_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UpdateActionPerformed
+        int row = tblHoaDon.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "chon dong can sua");
+            return;
+        }
+        String id = tblHoaDon.getValueAt(row, 0).toString();
+        String ngTao = tblHoaDon.getValueAt(row, 4).toString();
+        String ngThanhToan = tblHoaDon.getValueAt(row, 5).toString();
+        String trangThai = tblHoaDon.getValueAt(row, 7).toString();
+        String ghiChu = tblHoaDon.getValueAt(row, 8).toString();
+
+         int tt = -1;
+        if (trangThai.equals("Da thanh toan")) {
+            tt = 1;
+        } else {
+            tt = 0;
+        }
+
+        HoaDonViewModel hd = new HoaDonViewModel();
+        hd.setNgayTao(ngTao);
+        hd.setNgayThanhToan(ngThanhToan);
+        hd.setTinhTrang(tt);
+        hd.setGhiChu(ghiChu);
+
+        hoaDon.update(id, hd);
+        loadHoaDon(hoaDon.getAll());
+        JOptionPane.showMessageDialog(this, "Cap nhat thanh cong");
+    }//GEN-LAST:event_btn_UpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btn_Export;
+    private javax.swing.JButton btn_Export;
+    private javax.swing.JButton btn_Update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

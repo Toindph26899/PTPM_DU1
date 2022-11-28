@@ -4,18 +4,13 @@
  */
 package com.service;
 
-import com.viewmodel.HoaDonViewModel;
+import com.viewmodel.QLChucVuViewModel;
 import java.util.List;
 
 /**
  *
  * @author ADMIN
  */
-public interface IHoaDonSer {
-
-    List<HoaDonViewModel> getAll();
-
-    List<HoaDonViewModel> search(String string);
-
-    void update(String id, HoaDonViewModel hd);
+public interface IChucVuService {
+    List<QLChucVuViewModel> getAll();
 }

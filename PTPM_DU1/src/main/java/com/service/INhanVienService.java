@@ -4,18 +4,21 @@
  */
 package com.service;
 
-import com.viewmodel.HoaDonViewModel;
+import com.viewmodel.QLNhanVien;
 import java.util.List;
 
 /**
  *
  * @author ADMIN
  */
-public interface IHoaDonSer {
+public interface INhanVienService {
+    List<QLNhanVien> getAll();
 
-    List<HoaDonViewModel> getAll();
+    void insert(QLNhanVien nv);
 
-    List<HoaDonViewModel> search(String string);
+    void update(String id, QLNhanVien nv);
 
-    void update(String id, HoaDonViewModel hd);
+    void delete(String id);
+
+    List<QLNhanVien> search(String string);
 }

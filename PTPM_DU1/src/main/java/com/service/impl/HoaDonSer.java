@@ -15,18 +15,23 @@ import java.util.List;
  *
  * @author ADMIN
  */
-public class HoaDonSer implements IHoaDonSer{
-
-    private IHoaDonRepositoryHD hd = new HoaDonRepositoryHD();
+public class HoaDonSer implements IHoaDonSer {
+    
+    private IHoaDonRepositoryHD hdr = new HoaDonRepositoryHD();
     
     @Override
     public List<HoaDonViewModel> getAll() {
-        return hd.getAll();
+        return hdr.getAll();
     }
-
+    
     @Override
     public List<HoaDonViewModel> search(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return hdr.search(string);
+    }
+    
+    @Override
+    public void update(String id, HoaDonViewModel hd) {
+        hdr.update(id, hd);
     }
     
 }

@@ -4,14 +4,14 @@ import java.awt.Color;
 import javax.swing.JPanel;
 
 public class FrmChinh extends javax.swing.JFrame {
-
+    
     JPanel jPanel;
-
+    
     public FrmChinh() {
         initComponents();
         setLocationRelativeTo(null);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -130,7 +130,7 @@ public class FrmChinh extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Sản Phẩm");
+        jLabel3.setText("San pham");
 
         javax.swing.GroupLayout btn_SPLayout = new javax.swing.GroupLayout(btn_SP);
         btn_SP.setLayout(btn_SPLayout);
@@ -140,7 +140,7 @@ public class FrmChinh extends javax.swing.JFrame {
                 .addComponent(in_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addGap(0, 130, Short.MAX_VALUE))
+                .addGap(0, 131, Short.MAX_VALUE))
         );
         btn_SPLayout.setVerticalGroup(
             btn_SPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +180,7 @@ public class FrmChinh extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Bán Hàng");
+        jLabel4.setText("Ban hang");
 
         javax.swing.GroupLayout btn_BanHangLayout = new javax.swing.GroupLayout(btn_BanHang);
         btn_BanHang.setLayout(btn_BanHangLayout);
@@ -190,7 +190,7 @@ public class FrmChinh extends javax.swing.JFrame {
                 .addComponent(in_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addGap(0, 130, Short.MAX_VALUE))
+                .addGap(0, 134, Short.MAX_VALUE))
         );
         btn_BanHangLayout.setVerticalGroup(
             btn_BanHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,7 +230,7 @@ public class FrmChinh extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Hóa Đơn");
+        jLabel5.setText("Hoa don");
 
         javax.swing.GroupLayout btn_HoaDonLayout = new javax.swing.GroupLayout(btn_HoaDon);
         btn_HoaDon.setLayout(btn_HoaDonLayout);
@@ -240,7 +240,7 @@ public class FrmChinh extends javax.swing.JFrame {
                 .addComponent(in_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addGap(0, 139, Short.MAX_VALUE))
+                .addGap(0, 143, Short.MAX_VALUE))
         );
         btn_HoaDonLayout.setVerticalGroup(
             btn_HoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,7 +277,7 @@ public class FrmChinh extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Khuyến Mãi");
+        jLabel6.setText("Khuyen mai");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel6MousePressed(evt);
@@ -292,7 +292,7 @@ public class FrmChinh extends javax.swing.JFrame {
                 .addComponent(in_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addGap(0, 112, Short.MAX_VALUE))
+                .addGap(0, 115, Short.MAX_VALUE))
         );
         btn_KhuyenMaiLayout.setVerticalGroup(
             btn_KhuyenMaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,7 +329,7 @@ public class FrmChinh extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Đổi Sản Phẩm");
+        jLabel7.setText("Doi san pham");
 
         javax.swing.GroupLayout btn_DoiSPLayout = new javax.swing.GroupLayout(btn_DoiSP);
         btn_DoiSP.setLayout(btn_DoiSPLayout);
@@ -339,7 +339,7 @@ public class FrmChinh extends javax.swing.JFrame {
                 .addComponent(in_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
-                .addGap(0, 98, Short.MAX_VALUE))
+                .addGap(0, 102, Short.MAX_VALUE))
         );
         btn_DoiSPLayout.setVerticalGroup(
             btn_DoiSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,7 +376,7 @@ public class FrmChinh extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Khách Hàng");
+        jLabel8.setText("Khach Hang");
 
         javax.swing.GroupLayout btn_KhachHangLayout = new javax.swing.GroupLayout(btn_KhachHang);
         btn_KhachHang.setLayout(btn_KhachHangLayout);
@@ -403,6 +403,9 @@ public class FrmChinh extends javax.swing.JFrame {
 
         btn_NhanVien.setBackground(new java.awt.Color(41, 57, 80));
         btn_NhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_NhanVienMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btn_NhanVienMousePressed(evt);
             }
@@ -418,12 +421,12 @@ public class FrmChinh extends javax.swing.JFrame {
         );
         in_8Layout.setVerticalGroup(
             in_8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGap(0, 50, Short.MAX_VALUE)
         );
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Nhân Viên");
+        jLabel9.setText("Nhan Vien");
 
         javax.swing.GroupLayout btn_NhanVienLayout = new javax.swing.GroupLayout(btn_NhanVien);
         btn_NhanVien.setLayout(btn_NhanVienLayout);
@@ -437,12 +440,12 @@ public class FrmChinh extends javax.swing.JFrame {
         );
         btn_NhanVienLayout.setVerticalGroup(
             btn_NhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_NhanVienLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(in_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(btn_NhanVienLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(btn_NhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(btn_NhanVienLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(in_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -470,7 +473,7 @@ public class FrmChinh extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Thống Kê");
+        jLabel10.setText("Thong ke");
 
         javax.swing.GroupLayout btn_ThongkeLayout = new javax.swing.GroupLayout(btn_Thongke);
         btn_Thongke.setLayout(btn_ThongkeLayout);
@@ -480,7 +483,7 @@ public class FrmChinh extends javax.swing.JFrame {
                 .addComponent(in_9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
-                .addGap(0, 132, Short.MAX_VALUE))
+                .addGap(0, 137, Short.MAX_VALUE))
         );
         btn_ThongkeLayout.setVerticalGroup(
             btn_ThongkeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -495,11 +498,11 @@ public class FrmChinh extends javax.swing.JFrame {
 
         dashboard.add(btn_Thongke, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 240, 50));
 
-        getContentPane().add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 240, 760));
+        getContentPane().add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 240, 810));
 
         container.setBackground(new java.awt.Color(255, 255, 255));
         container.setLayout(new java.awt.BorderLayout());
-        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 4, 1150, 760));
+        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 4, 880, 810));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -508,28 +511,28 @@ public class FrmChinh extends javax.swing.JFrame {
         setColor(btn_SP);
         in_2.setOpaque(true);
         resetColor(new JPanel[]{btn_BanHang, btn_HoaDon, btn_Home, btn_KhuyenMai, btn_DoiSP},
-                new JPanel[]{in_1, in_3, in_4, in_5, in_6,in_7,in_8,in_9});
+                new JPanel[]{in_1, in_3, in_4, in_5, in_6, in_7, in_8, in_9});
     }//GEN-LAST:event_btn_SPMousePressed
 
     private void btn_HomeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HomeMousePressed
         setColor(btn_Home);
         in_1.setOpaque(true);
         resetColor(new JPanel[]{btn_BanHang, btn_HoaDon, btn_SP, btn_KhuyenMai, btn_DoiSP},
-                new JPanel[]{in_2, in_3, in_4, in_5, in_6,in_7,in_8,in_9});
+                new JPanel[]{in_2, in_3, in_4, in_5, in_6, in_7, in_8, in_9});
     }//GEN-LAST:event_btn_HomeMousePressed
 
     private void btn_BanHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_BanHangMousePressed
         setColor(btn_BanHang);
         in_3.setOpaque(true);
         resetColor(new JPanel[]{btn_Home, btn_HoaDon, btn_SP, btn_KhuyenMai, btn_DoiSP},
-                new JPanel[]{in_2, in_1, in_4, in_5, in_6,in_7,in_8,in_9});
+                new JPanel[]{in_2, in_1, in_4, in_5, in_6, in_7, in_8, in_9});
     }//GEN-LAST:event_btn_BanHangMousePressed
 
     private void btn_HoaDonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HoaDonMousePressed
         setColor(btn_HoaDon);
         in_4.setOpaque(true);
         resetColor(new JPanel[]{btn_BanHang, btn_Home, btn_SP, btn_KhuyenMai, btn_DoiSP},
-                new JPanel[]{in_2, in_3, in_1, in_5, in_6,in_7,in_8,in_9});
+                new JPanel[]{in_2, in_3, in_1, in_5, in_6, in_7, in_8, in_9});
     }//GEN-LAST:event_btn_HoaDonMousePressed
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
@@ -576,7 +579,7 @@ public class FrmChinh extends javax.swing.JFrame {
         setColor(btn_Thongke);
         in_9.setOpaque(true);
         resetColor(new JPanel[]{btn_BanHang, btn_HoaDon, btn_SP, btn_KhuyenMai,
-            btn_Home, btn_NhanVien, btn_KhachHang, btn_Thongke},
+            btn_Home, btn_NhanVien, btn_KhachHang, btn_DoiSP},
                 new JPanel[]{in_2, in_3, in_4, in_5, in_1, in_7, in_8, in_6});
     }//GEN-LAST:event_btn_ThongkeMousePressed
 
@@ -585,10 +588,15 @@ public class FrmChinh extends javax.swing.JFrame {
         showJpanel(jPanel);
     }//GEN-LAST:event_btn_BanHangMouseClicked
 
+    private void btn_NhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_NhanVienMouseClicked
+        jPanel = new JPNhanVien();
+        showJpanel(jPanel);
+    }//GEN-LAST:event_btn_NhanVienMouseClicked
+    
     private void setColor(JPanel jPanel) {
         jPanel.setBackground(new Color(41, 57, 80));
     }
-
+    
     private void resetColor(JPanel[] jPanel, JPanel[] opacity) {
         for (int i = 0; i < jPanel.length; i++) {
             jPanel[i].setBackground(new Color(23, 35, 51));
@@ -597,15 +605,15 @@ public class FrmChinh extends javax.swing.JFrame {
             opacity[i].setOpaque(false);
         }
     }
-
+    
     private void showJpanel(JPanel jPanel1) {
         container.removeAll();
         container.add(jPanel1);
         container.validate();
     }
-
+    
     public static void main(String args[]) {
-
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmChinh().setVisible(true);

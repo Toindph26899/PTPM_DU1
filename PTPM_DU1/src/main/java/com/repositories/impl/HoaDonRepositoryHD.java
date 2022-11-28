@@ -63,4 +63,53 @@ public class HoaDonRepositoryHD implements IHoaDonRepositoryHD {
         HoaDonRepositoryHD hd = new HoaDonRepositoryHD();
         hd.getAll().forEach(s -> System.out.println(s.toString()));
     }
+
+    @Override
+    public List<HoaDonViewModel> search(String string) {
+        List<HoaDonViewModel> ds = new ArrayList<>();
+        String sql = "select a.Id,c.Ten,c.Sdt,b.Ten,a.NgayTao,a.NgayThanhToan,"
+                + "d.LoaiHinhThanhToan,a.TinhTrang,a.GhiChu\n"
+                + "from HoaDon a join NhanVien b on a.IdNhanVien = b.Id\n"
+                + "              join KhachHang c on a.IdKH = c.Id\n"
+                + "              join HinhThucThanhToan d on a.Id = d.IdHoaDon"
+                + "              where c.Sdt like '%" + string + "%' or c.Ten like '%" + string + "%'";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                HoaDonViewModel hd = new HoaDonViewModel();
+                hd.setId(rs.getString(1));
+                hd.setTenKH(rs.getString(2));
+                hd.setSdtKH(rs.getString(3));
+                hd.setTenNV(rs.getString(4));
+                hd.setNgayTao(rs.getString(5));
+                hd.setNgayThanhToan(rs.getString(6));
+                hd.setHinhThucThanhToan(rs.getString(7));
+                hd.setTinhTrang(rs.getInt(8));
+                hd.setGhiChu(rs.getString(9));
+                ds.add(hd);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ds;
+    }
+
+    @Override
+    public void update(String id, HoaDonViewModel hd) {
+        String sql = "update HoaDon set NgayTao = ?, NgayThanhToan = ?, TinhTrang = ?, GhiChu = ?"
+                + " where id = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, hd.getNgayTao());
+            ps.setString(2, hd.getNgayThanhToan());
+            ps.setInt(3, hd.getTinhTrang());
+            ps.setString(4, hd.getGhiChu());
+            ps.setString(5, id);
+            ps.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -14,8 +14,7 @@ public class HoaDonRepository implements IHoaDonRepository {
     @Override
     public ArrayList<HoaDonView> listHoaDonView() {
         listHoaDon = new ArrayList<>();
-        try {
-             Connection conn = DbConnection.getConnection();
+        try ( Connection conn = DbConnection.getConnection()) {
             String sql = "SELECT hd.id, hd.Ma, nv.Ten, hd.TenKh, hd.NgayTao, hd.NgayThanhToan, hd.TinhTrang "
                     + "FROM HoaDon hd JOIN NhanVien nv ON hd.IdNhanVien = nv.Id";
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -106,8 +105,4 @@ public class HoaDonRepository implements IHoaDonRepository {
         return false;
     }
 
-    public static void main(String[] args) {
-        IHoaDonRepository h = new HoaDonRepository();
-        System.out.println(h.listHoaDonView().toString());
-    }
 }
